@@ -135,7 +135,7 @@ public class AudioSettingsDropdown : MonoBehaviour
 
         Button buttonComponent = button.gameObject.AddComponent<Button>();
         buttonComponent.onClick.AddListener(TogglePanel);
-        CreateText("Icon", button, "⚙", buttonTextColor, 24, TextAlignmentOptions.Center).rectTransform.sizeDelta = buttonSize;
+        CreateText("Icon", button, "S", buttonTextColor, 24, TextAlignmentOptions.Center).rectTransform.sizeDelta = buttonSize;
 
         panel = CreatePanel("SettingsPanel", canvas.transform, panelSize, panelColor);
         panel.anchorMin = Vector2.one;
