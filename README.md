@@ -1,38 +1,64 @@
+# PODECK_3D
+
+Unity project for the PODECK 3D prototype.
+
+## Project Structure
+
+- `Assets/_Project` contains project-owned scripts, scenes, prefabs, materials, UI, audio, and supporting assets.
+- `Assets/ThirdParty` contains imported free, sample, or license-check-required assets used by the project.
+- `Assets/PaidAssets` contains locally installed paid or license-restricted assets that are not committed.
+- `Packages` and `ProjectSettings` are required Unity project configuration folders.
+- `Library`, `Logs`, `UserSettings`, `GeneratedAssets`, `Backups`, Codex work records, and Unity AI temporary files are local-only and ignored by Git.
+
+## Required External Assets
+
+The following assets are not committed when they are paid, license-restricted, generated, or local-only. Install them locally before opening scenes that reference them.
+
+| Asset                              | Expected path                                 | Status                     | Notes                                                                         |
+| ---------------------------------- | --------------------------------------------- | -------------------------- | ----------------------------------------------------------------------------- |
+| ToonScapes Spring Isles            | `Assets/PaidAssets/ToonScapes`                | Paid or license-restricted | Not included in Git. Import from the licensed Unity Asset Store package.      |
+| Unity AI Toolkit temporary outputs | `Assets/AI Toolkit` and `GeneratedAssets`     | Local-only                 | Not required for normal collaboration. Regenerate locally if needed.          |
+| Loading Effect                     | `Assets/ThirdParty/Loading Effect`            | Verify license             | Currently used by loading UI. Confirm redistribution rights before public PR. |
+| Footsteps Mini Sound Pack          | `Assets/ThirdParty/Footsteps Mini Sound Pack` | Verify license             | Currently used by SFX. Confirm redistribution rights before public PR.        |
+| Animated PBR Chest Demo            | `Assets/ThirdParty/Animated PBR Chest Demo`   | Verify license             | Confirm redistribution rights before public PR.                               |
+| Starter Assets                     | `Assets/ThirdParty/StarterAssets`             | Unity package sample       | Used by the player controller.                                                |
+| TextMesh Pro essential resources   | `Assets/ThirdParty/TextMesh Pro`              | Unity package resources    | Used by TMP UI text assets.                                                   |
+
 ## Setup
 
 ### Required Unity Settings
 
-Unity 프로젝트를 Git으로 관리하기 전에 아래 설정을 먼저 맞춰주세요.
+Before managing this Unity project with Git, confirm these settings.
 
 - `Edit > Project Settings > Editor`
-- `Version Control / Mode` → `Visible Meta Files`
-- `Asset Serialization / Mode` → `Force Text`
+- `Version Control / Mode` -> `Visible Meta Files`
+- `Asset Serialization / Mode` -> `Force Text`
 
-이 설정은 `.meta` 파일과 Unity 에셋 변경 사항을 안정적으로 추적하기 위해 필요합니다.
+These settings keep `.meta` files and Unity asset changes stable in version control.
 
 ### Git LFS
 
-대용량 에셋 관리를 위해 Git LFS를 사용합니다.
+This repository uses Git LFS for large binary assets.
 
 ```bash
 git lfs install
 ```
 
-필요한 바이너리 파일은 `.gitattributes`에서 추적하도록 설정합니다.
+The binary file patterns are defined in `.gitattributes`.
 
 ### Repository Rules
 
-- `Library/`, `Temp/`, `Build/`, `Builds/`는 커밋하지 않습니다.
-- `.meta` 파일은 반드시 함께 커밋합니다.
-- 큰 이미지, 모델, 오디오 파일은 Git LFS로 관리합니다.
-- Unity 버전은 팀 내에서 동일하게 맞춥니다.
+- Do not commit generated folders such as `Library/`, `Temp/`, `Build/`, `Builds/`, `Logs/`, or `UserSettings/`.
+- Always commit `.meta` files together with their Unity assets.
+- Manage large images, models, audio, fonts, and archives through Git LFS.
+- Keep the Unity version aligned with `ProjectSettings/ProjectVersion.txt`.
 
 ### WebGL Build
 
-이 프로젝트는 WebGL 배포를 전제로 합니다.
+This project targets WebGL deployment.
 
 - `File > Build Settings`
-- `WebGL` 선택
-- `Switch Platform` 실행
+- Select `WebGL`
+- Run `Switch Platform`
 
-빌드 산출물은 기본적으로 레포에 직접 커밋하지 않고, 배포용 아티팩트로 관리합니다.
+Build outputs should be managed as deployment artifacts, not committed directly to the repository.
