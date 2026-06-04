@@ -1,4 +1,3 @@
-// 플레이어의 상자 상호작용과 보상 연출을 제어하는 컴포넌트
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;

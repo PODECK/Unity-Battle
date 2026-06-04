@@ -1,4 +1,3 @@
-// 일정 시간 후 안내 UI를 생성하고 표시 시간을 관리하는 컴포넌트
 using UnityEngine;
 using System.Collections;
 using TMPro;

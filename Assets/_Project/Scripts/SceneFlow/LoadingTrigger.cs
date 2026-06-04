@@ -1,4 +1,3 @@
-// 플레이어 입력으로 로딩 씬 전환을 시작하는 트리거 컴포넌트
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
